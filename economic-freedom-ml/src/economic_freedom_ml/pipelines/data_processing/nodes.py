@@ -16,7 +16,7 @@ def preprocess_raw_data (heritage_foundation_database: pd.DataFrame) -> pd.DataF
     """     
     pp_data = heritage_foundation_database.dropna(axis=0, subset=["Overall Score"])
     preprocess_data = pp_data.rename(columns={
-        "Name": "name",
+        "Name": "country",
         "Index Year": "year",
         "Overall Score": "score",
         "Property Rights": "property_right",
