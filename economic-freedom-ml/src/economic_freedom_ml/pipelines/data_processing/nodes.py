@@ -11,10 +11,11 @@ def preprocess_raw_data (heritage_foundation_database: pd.DataFrame) -> pd.DataF
         election_data: Raw data.
     Returns:
         Preprocessed data with:
-           blanck and null votes columns deleted, 
-           also the roll "Territory Nacional" as it is a agreggation of all other rows.
-    """      
-    heritage_foundation_database.rename(columns={
+           null rows deleted, 
+           rename columns.
+    """     
+    pp_data = heritage_foundation_database.dropna(axis=0, subset=["Overall Score"])
+    preprocess_data = pp_data.rename(columns={
         "Name": "name",
         "Index Year": "year",
         "Overall Score": "score",
@@ -30,8 +31,8 @@ def preprocess_raw_data (heritage_foundation_database: pd.DataFrame) -> pd.DataF
         "Trade Freedom": "trade_freedom",
         "Investment Freedom": "investment_freedom",
         "Financial Freedom": "financial_freedom"
-    })
-    return heritage_foundation_database
+        })
+    return preprocess_data
 
 
 
