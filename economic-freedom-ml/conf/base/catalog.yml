@@ -8,7 +8,15 @@ heritage_foundation_database:
   type: pandas.CSVDataSet
   filepath: data/01_raw/heritage_foundation_data.csv
 
+world_database:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/world_data.csv
+
 ## PreProcessed Data
 preprocess_data:
   type: pandas.CSVDataSet
   filepath: data/02_intermediate/pp_raw_data.csv
+
+preprocess_world_data:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/pp_world_data.csv
