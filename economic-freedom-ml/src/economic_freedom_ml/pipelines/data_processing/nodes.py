@@ -5,10 +5,10 @@ generated using Kedro 0.18.4
 import pandas as pd 
 
 def preprocess_raw_data (heritage_foundation_database: pd.DataFrame) -> pd.DataFrame:
-    """Preprocesses the data for election_data.
+    """Preprocesses the data for heritage_foundation_data.
 
     Args:
-        election_data: Raw data.
+        heritage_foundation_data: Raw data.
     Returns:
         Preprocessed data with:
            null rows deleted, 
@@ -35,4 +35,24 @@ def preprocess_raw_data (heritage_foundation_database: pd.DataFrame) -> pd.DataF
     return preprocess_data
 
 
+def preprocess_world (world_database: pd.DataFrame) -> pd.DataFrame:
+    """Preprocesses the data for world_data.
 
+    Args:
+        world_data: Raw data.
+    Returns:
+        Preprocessed data with:
+           selecting only the necessary columns
+           creating dummies and renaming columns.
+    """     
+    selecting_columns = world_database[["country", "region"]]
+    making_dummies = pd.get_dummies(selecting_columns, columns=['region'])
+    preprocess_world_data = making_dummies.rename(columns={
+        "region_Africa":"africa",
+        "region_Asia":"asia",
+        "region_Europe":"europe",
+        "region_North America":"north_america",
+        "region_Oceania":"oceania",
+        "region_South America":"south_america"
+        })
+    return preprocess_world_data
