@@ -15,8 +15,14 @@ world_database:
 ## PreProcessed Data
 preprocess_data:
   type: pandas.CSVDataSet
-  filepath: data/02_intermediate/pp_raw_data.csv
+  filepath: data/03_primary/pp_raw_data.csv
 
+## Feature
 preprocess_world_data:
   type: pandas.CSVDataSet
-  filepath: data/02_intermediate/pp_world_data.csv
+  filepath: data/04_feature/pp_world_data.csv
+
+## Model Input
+data_with_features:
+  type: pandas.CSVDataSet
+  filepath: data/05_model_input/data_with_features.csv
