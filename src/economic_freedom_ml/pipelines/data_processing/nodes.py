@@ -12,10 +12,12 @@ def preprocess_raw_data (heritage_foundation_database: pd.DataFrame) -> pd.DataF
     Returns:
         Preprocessed data with:
            null rows deleted, 
+           replace 'The Bahamas' for 'Bahamas' to match the data,
            rename columns.
     """     
     pp_data = heritage_foundation_database.dropna(axis=0, subset=["Overall Score"])
-    preprocess_data = pp_data.rename(columns={
+    pp_name = pp_data.replace('The Bahamas','Bahamas',regex=True)
+    preprocess_data = pp_name.rename(columns={
         "Name": "country",
         "Index Year": "year",
         "Overall Score": "score",
@@ -55,4 +57,5 @@ def preprocess_world (world_database: pd.DataFrame) -> pd.DataFrame:
         "region_Oceania":"oceania",
         "region_South America":"south_america"
         })
+    
     return preprocess_world_data
