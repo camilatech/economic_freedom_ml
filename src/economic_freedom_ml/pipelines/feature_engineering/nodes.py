@@ -15,10 +15,13 @@ def creating_features (preprocess_data: pd.DataFrame, preprocess_world_data: pd.
         Data with new features:
            Joining both dataframes.
     """   
-    data_with_features = pd.merge(
+    data_with_continents = pd.merge(
         preprocess_data, 
         preprocess_world_data,
         how="left",
         on='country', 
     )
+
+    data_with_features = pd.get_dummies(data_with_continents, columns=['country'])
+
     return data_with_features
