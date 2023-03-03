@@ -13,6 +13,8 @@ def preprocess_raw_data (heritage_foundation_database: pd.DataFrame) -> pd.DataF
         Preprocessed data with:
            null rows deleted, 
            replace 'The Bahamas' for 'Bahamas' to match the data,
+           deleting columns with lots of null,
+           substitute null values for 0,
            rename columns,
            substitute space for underline and lower case.
     """     
@@ -46,7 +48,8 @@ def preprocess_world (world_database: pd.DataFrame) -> pd.DataFrame:
         world_data: Raw data.
     Returns:
         Preprocessed data with:
-           selecting only the necessary columns.
+           selecting only the necessary columns,
+           substitute space for underline and lower case.
     """     
     preprocess_world_data = world_database[["country", "region"]]
 

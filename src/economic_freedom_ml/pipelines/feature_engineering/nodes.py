@@ -9,12 +9,13 @@ def creating_features (preprocess_data: pd.DataFrame, preprocess_world_data: pd.
 
     Args:
         preprocess_data: preprocessed data from heritage fundation.
-        preprocess_world_data: prepossed data with countries and its continents in dummy.
+        preprocess_world_data: prepossed data with countries and its continents.
 
     Returns:
         Data with new features:
-           Joining both dataframes.
+           Joining both dataframes and creating dummies.
     """   
+    
     data_with_continents = pd.merge(
         preprocess_data, 
         preprocess_world_data,
@@ -22,6 +23,6 @@ def creating_features (preprocess_data: pd.DataFrame, preprocess_world_data: pd.
         on='country', 
     )
 
-    data_with_features = pd.get_dummies(data_with_continents, columns=['country'])
+    data_with_features = pd.get_dummies(data_with_continents, columns=['country', 'region'], prefix='', prefix_sep='')
 
     return data_with_features
