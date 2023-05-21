@@ -1,0 +1,37 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://kedro.readthedocs.io/en/stable/data/data_catalog.html
+
+## Raw Data
+heritage_foundation_database:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/heritage_foundation_data.csv
+
+world_database:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/world_data.csv
+
+## PreProcessed Data
+preprocess_data:
+  type: pandas.CSVDataSet
+  filepath: data/03_primary/pp_raw_data.csv
+
+## Feature
+preprocess_world_data:
+  type: pandas.CSVDataSet
+  filepath: data/04_feature/pp_world_data.csv
+
+## Model Input
+data_with_features:
+  type: pandas.CSVDataSet
+  filepath: data/05_model_input/data_with_features.csv
+
+data_for_prophet:
+  type: pandas.CSVDataSet
+  filepath: data/05_model_input/data_for_prophet.csv
+
+## Model Output
+mercosur_predictions:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/mercosur_predictions.csv
