@@ -148,5 +148,3 @@ https://www.heritage.org/index/explore?view=by-region-country-year&u=63811579766
 
 Dados: extraidos dia 10/02/2023
 https://worldpopulationreview.com/country-rankings/list-of-countries-by-continent
-
-TIRAR OS DADOS DO GIT (SÓ DEIXAR OS DADOS RAW) 
