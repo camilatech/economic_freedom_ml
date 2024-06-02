@@ -1,150 +1,120 @@
-# economic_freedom_ml
+# Mercosur Economic Freedom Prediction Using Machine Learning
 
 ## Overview
 
-This is your new Kedro project, which was generated using `Kedro 0.18.4`.
+This project, developed for my final degree thesis (TCC), aims to leverage machine learning to predict economic freedom in Mercosur countries. Utilizing MLOps practices and Kedro for reproducible workflows, the study evaluates three machine learning algorithms: Prophet, XGBoost, and Random Forest. Prophet demonstrated superior performance in predicting economic freedom trends based solely on economic freedom scores, providing valuable insights into the possible evolution of economic freedom in these countries.
 
-Take a look at the [Kedro documentation](https://kedro.readthedocs.io) to get started.
+For more details, you can read the full thesis [here](https://sistemabu.udesc.br/pergamumweb/vinculos/0000aa/0000aa48.pdf).
 
-## Rules and guidelines
+**Keywords:** Machine Learning, Economic Freedom, Mercosur, Forecasting, Trend Analysis
 
-In order to get the best out of the template:
+## Project Setup
 
-* Don't remove any lines from the `.gitignore` file we provide
-* Make sure your results can be reproduced by following a [data engineering convention](https://kedro.readthedocs.io/en/stable/faq/faq.html#what-is-data-engineering-convention)
-* Don't commit data to your repository
-* Don't commit any credentials or your local configuration to your repository. Keep all your credentials and local configuration in `conf/local/`
+### Installation
 
-## How to install dependencies
+1. Create and activate a virtual environment:
 
-Declare any dependencies in `src/requirements.txt` for `pip` installation and `src/environment.yml` for `conda` installation.
-
-To install them, run:
-
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 ```
+
+2. Install Kedro:
+
+```bash
+pip install kedro
+```
+
+3. Navigate to the project folder and install the requirements:
+
+```bash
 pip install -r src/requirements.txt
 ```
 
-## How to run your Kedro pipeline
+### Running the Kedro Pipeline
 
-You can run your Kedro project with:
+To run the Kedro project, execute:
 
-```
+```bash
 kedro run
 ```
 
-## How to test your Kedro project
+### Testing the Project
 
-Have a look at the file `src/tests/test_run.py` for instructions on how to write your tests. You can run your tests as follows:
+Refer to `src/tests/test_run.py` for instructions on writing tests. Run your tests with:
 
-```
+```bash
 kedro test
 ```
 
-To configure the coverage threshold, go to the `.coveragerc` file.
+Configure the coverage threshold in the `.coveragerc` file.
 
-## Project dependencies
+### Project Dependencies
 
-To generate or update the dependency requirements for your project:
+To generate or update the project dependencies:
 
-```
+```bash
 kedro build-reqs
 ```
 
-This will `pip-compile` the contents of `src/requirements.txt` into a new file `src/requirements.lock`. You can see the output of the resolution by opening `src/requirements.lock`.
+This command will `pip-compile` the contents of `src/requirements.txt` into a new file `src/requirements.lock`.
 
-After this, if you'd like to update your project requirements, please update `src/requirements.txt` and re-run `kedro build-reqs`.
+### Working with Jupyter Notebooks
 
-[Further information about project dependencies](https://kedro.readthedocs.io/en/stable/kedro_project_setup/dependencies.html#project-specific-dependencies)
+To use Jupyter notebooks in your Kedro project, first install Jupyter:
 
-## How to work with Kedro and notebooks
-
-> Note: Using `kedro jupyter` or `kedro ipython` to run your notebook provides these variables in scope: `context`, `catalog`, and `startup_error`.
->
-> Jupyter, JupyterLab, and IPython are already included in the project requirements by default, so once you have run `pip install -r src/requirements.txt` you will not need to take any extra steps before you use them.
-
-### Jupyter
-To use Jupyter notebooks in your Kedro project, you need to install Jupyter:
-
-```
+```bash
 pip install jupyter
 ```
 
-After installing Jupyter, you can start a local notebook server:
+Start a local notebook server:
 
-```
+```bash
 kedro jupyter notebook
 ```
 
-### JupyterLab
-To use JupyterLab, you need to install it:
+For JupyterLab:
 
-```
+```bash
 pip install jupyterlab
-```
-
-You can also start JupyterLab:
-
-```
 kedro jupyter lab
 ```
 
-### IPython
-And if you want to run an IPython session:
+For an IPython session:
 
-```
+```bash
 kedro ipython
 ```
 
-### How to convert notebook cells to nodes in a Kedro project
-You can move notebook code over into a Kedro project structure using a mixture of [cell tagging](https://jupyter-notebook.readthedocs.io/en/stable/changelog.html#release-5-0-0) and Kedro CLI commands.
+### Converting Notebook Cells to Nodes
 
-By adding the `node` tag to a cell and running the command below, the cell's source code will be copied over to a Python file within `src/<package_name>/nodes/`:
+Add the `node` tag to a cell and convert it to a Python file within `src/<package_name>/nodes/`:
 
-```
+```bash
 kedro jupyter convert <filepath_to_my_notebook>
 ```
-> *Note:* The name of the Python file matches the name of the original notebook.
 
-Alternatively, you may want to transform all your notebooks in one go. Run the following command to convert all notebook files found in the project root directory and under any of its sub-folders:
+To convert all notebooks at once:
 
-```
+```bash
 kedro jupyter convert --all
 ```
 
-### How to ignore notebook output cells in `git`
-To automatically strip out all output cell contents before committing to `git`, you can run `kedro activate-nbstripout`. This will add a hook in `.git/config` which will run `nbstripout` before anything is committed to `git`.
+### Ignoring Notebook Output Cells in `git`
 
-> *Note:* Your output cells will be retained locally.
+Strip out all output cell contents before committing to `git`:
 
-## Package your Kedro project
+```bash
+kedro activate-nbstripout
+```
 
-[Further information about building project documentation and packaging your project](https://kedro.readthedocs.io/en/stable/tutorial/package_a_project.html)
+### Packaging Your Kedro Project
 
+For more information on building project documentation and packaging, refer to the [Kedro documentation](https://kedro.readthedocs.io/en/stable/tutorial/package_a_project.html).
 
+### Data Sources
 
-# liberdade_economica
+Data used in this project were extracted on:
 
-primeiro criar a venv
-ativar venv
-depois dar um pip install kedro
-kedro info
-entrar no folder criado e dar um requirements:
-Please enter a human readable name for your new project.
-Spaces, hyphens, and underscores are allowed.
- [New Kedro Project]: economic_freedom_ml
-
-The project name 'economic_freedom_ml' has been applied to: 
-- The project title in /home/work/Documents/repo/economic_freedom_ml/economic-freedom-ml/README.md 
-- The folder created for your project in /home/work/Documents/repo/economic_freedom_ml/economic-freedom-ml 
-- The project's python package in /home/work/Documents/repo/economic_freedom_ml/economic-freedom-ml/src/economic_freedom_ml
-
-A best-practice setup includes initialising git and creating a virtual environment before running 'pip install -r src/requirements.txt' to install project-specific dependencies. Refer to the Kedro documentation: https://kedro.readthedocs.io/
-
-
-Dados: extraidos dia 09/02/2023
-https://www.heritage.org/index/explore?view=by-region-country-year&u=638115797667131343
-
-
-Dados: extraidos dia 10/02/2023
-https://worldpopulationreview.com/country-rankings/list-of-countries-by-continent
+- **09/02/2023** from [Heritage Foundation](https://www.heritage.org/index/explore?view=by-region-country-year&u=638115797667131343)
+- **10/02/2023** from [World Population Review](https://worldpopulationreview.com/country-rankings/list-of-countries-by-continent)
